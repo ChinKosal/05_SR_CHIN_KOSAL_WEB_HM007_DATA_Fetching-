@@ -30,6 +30,7 @@ export default async function Home() {
               <span className="text-2xl text-white font-semibold">
                 <IoIosArrowForward />
               </span>
+              <span>kdshufgsdy</span>
             </div>
             <MovieCardComponent d={d} />
           </div>
