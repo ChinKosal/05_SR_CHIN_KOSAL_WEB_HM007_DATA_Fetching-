@@ -27,19 +27,15 @@ const movieDetailsPage = async ({ params }) => {
   const renderStars = () => {
     const rating = data.payload.rating;
     const fullStars = Math.floor(rating);
-    // console.log("full star : ", fullStars);
+    // console.log(fullStars);
     const stars = [];
 
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(<FaStar key={i} color="gold" />);
-    }
-
-    if (rating - fullStars >= 0.5) {
-      stars.push(<FaStar key={fullStars} color="gold" />);
-    }
-
-    for (let i = 0; i < 4 - rating; i++) {
-      stars.push(<FaStar key={fullStars + i} color="white" />);
+    for (let i = 0; i < 5; i++) {
+      if (i < fullStars) {
+        stars.push(<FaStar key={i} color="gold" />);
+      } else {
+        stars.push(<FaStar key={i} color="white" />);
+      }
     }
 
     return stars;
