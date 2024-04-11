@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa6";
 const movieDetailsPage = async ({ params }) => {
   // console.log("Params : ", params.movieId);
   const data = await getMovieByIdServie(params.movieId);
-  console.log("Data by ID : ", data);
+  // console.log("Data by ID : ", data);
 
   // Custom function to format the date and time
   const formatDateTime = (dateTimeString) => {
@@ -18,23 +18,30 @@ const movieDetailsPage = async ({ params }) => {
       second: "numeric",
     };
     const dateTime = new Date(dateTimeString);
+    // console.log("Date time : ", dateTime);
     const formattedDateTime = dateTime.toLocaleString("en-US", options);
+    // console.log("Format data time : ", formatDateTime);
     return formattedDateTime.replace("at", ",");
   };
 
   const renderStars = () => {
     const rating = data.payload.rating;
     const fullStars = Math.floor(rating);
+    // console.log("full star : ", fullStars);
     const stars = [];
 
     for (let i = 0; i < fullStars; i++) {
-      stars.push(<FaStar key={i} />);
+      stars.push(<FaStar key={i} color="gold" />);
     }
 
-    // Check if there is a half star
     if (rating - fullStars >= 0.5) {
-      stars.push(<FaStar key={fullStars} />);
+      stars.push(<FaStar key={fullStars} color="gold" />);
     }
+
+    for (let i = 0; i < 4 - rating; i++) {
+      stars.push(<FaStar key={fullStars + i} color="white" />);
+    }
+
     return stars;
   };
   return (
@@ -67,7 +74,7 @@ const movieDetailsPage = async ({ params }) => {
                   <span className="text-white dark:text-gray-300">
                     {data.payload.genre}
                   </span>
-                  <div className="flex items-center gap-1 mt-2 text-yellow-600 text-xl">
+                  <div className="flex items-center gap-1 mt-2 text-xl">
                     {renderStars()}
                   </div>
                 </div>
