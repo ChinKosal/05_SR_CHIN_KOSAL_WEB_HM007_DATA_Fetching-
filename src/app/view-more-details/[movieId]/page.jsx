@@ -26,7 +26,7 @@ const movieDetailsPage = async ({ params }) => {
 
   const renderStars = () => {
     const rating = data.payload.rating;
-    const fullStars = Math.floor(rating);
+    const fullStars = Math.ceil(rating);
     // console.log(fullStars);
     const stars = [];
 
