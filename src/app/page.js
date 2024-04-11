@@ -5,9 +5,9 @@ import { IoIosArrowForward } from "react-icons/io";
 export default async function Home() {
   const data = await getAllMovieService();
   const datas = data.payload.map((m) => m.genre);
-  console.log(datas);
+  // console.log(datas);
   const dataFilter = datas.filter((q, idx) => datas.indexOf(q) === idx);
-  console.log(dataFilter);
+  // console.log(dataFilter);
   return (
     <main className="absolute top-0">
       <div className="w-full h-[1000px] opacity-75">

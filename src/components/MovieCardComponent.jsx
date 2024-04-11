@@ -21,10 +21,10 @@ const MovieCardComponent = async ({ d }) => {
             {data.payload.map((item) => (
               <CarouselItem
                 key={item.movie_id}
-                className="md:basis-1/2 lg:basis-1/5 "
+                className="md:basis-1/2 lg:basis-1/5"
               >
                 <Link href={`/view-more-details/${item.movie_id}`}>
-                  <div class="bg-white h-[390px] grid grid-rows-12 rounded-lg shadow-lg overflow-hidden max-w-lg w-full pt-6 pl-6 pr-6">
+                  <div className="bg-white h-[390px] grid grid-rows-12 rounded-lg shadow-lg overflow-hidden max-w-lg w-full pt-6 pl-6 pr-6">
                     <div className="row-span-6 rounded-lg overflow-hidden">
                       <img
                         src={`${
@@ -33,14 +33,14 @@ const MovieCardComponent = async ({ d }) => {
                             : `https://i.pinimg.com/564x/1e/6a/02/1e6a022bd5e190fe5bf1e87904411a7e.jpg`
                         }`}
                         alt="Mountain"
-                        class="w-full object-cover"
+                        className="w-full object-cover"
                       />
                     </div>
-                    <div class="row-span-6 pt-6">
-                      <h2 class="text-2xl font-bold text-gray-800 mb-4 line-clamp-1">
+                    <div className="row-span-6 pt-6">
+                      <h2 className="text-2xl font-bold text-gray-800 mb-4 line-clamp-1">
                         {item.movie_title}
                       </h2>
-                      <p class="text-gray-700 leading-tight line-clamp-2">
+                      <p className="text-gray-700 leading-tight line-clamp-2">
                         {item.description}
                       </p>
                     </div>
